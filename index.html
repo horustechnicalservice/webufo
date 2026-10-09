@@ -2115,6 +2115,12 @@ img[loading="lazy"]{content-visibility:auto;}
 @keyframes cxEdgeGlow{0%,100%{box-shadow:0 0 10px rgba(var(--fx),.3),inset 0 0 10px rgba(var(--fx),.1)}50%{box-shadow:0 0 22px rgba(var(--fx),.65),inset 0 0 14px rgba(var(--fx),.2)}}
 @media(prefers-reduced-motion:reduce){.cx-edge-item.hl{animation:none}}
 </style>
+<style id="resumen-partes-style">
+/* Resumen de partes: solo en el menú lateral (debajo de Objetos/Tipos); el botón sigue en el DOM para que el menú lo use */
+#nav button[data-view="resumen"]{display:none!important}
+#view-resumen.active{display:block!important;min-height:50vh!important}
+.cx-edge-item.fx-res{--fx:96,165,255}
+</style>
 <style id="edge-handle-title">.cx-edge-handle{height:auto!important;min-height:5.4rem;padding:.7rem 0}.cx-edge-txt{white-space:nowrap}</style>
 <style id="timeline-scroll-hint">
 .cx-tl-swipe{display:flex;align-items:center;justify-content:center;gap:.6rem;margin:.1rem 0 .45rem;font:700 .6rem var(--fm);letter-spacing:.16em;color:#5ef0c8}
@@ -2272,6 +2278,7 @@ html.cx-scrolling body *,html.cx-scrolling body *::before,html.cx-scrolling body
 <button data-view="ciencia" type="button"><span class="ico">⌬</span><span class="lbl" data-i18n="nav.ciencia">Ciencia</span></button>
 <button data-view="taxonomia" type="button"><span class="ico">⬡</span><span class="lbl">Taxonomía</span></button>
 <button data-view="objetos" type="button"><span class="ico">⏣</span><span class="lbl">Objetos/Tipos</span></button>
+<button data-view="resumen" type="button"><span class="ico">≣</span><span class="lbl">Resumen de partes</span></button>
 <button data-view="agencia" type="button"><span class="ico">◈</span><span class="lbl">Sobre</span></button>
 </nav>
 <main>
@@ -2450,6 +2457,13 @@ html.cx-scrolling body *,html.cx-scrolling body *::before,html.cx-scrolling body
 </div>
 </div>
 </div>
+</div><div aria-label="Galería visual del sector" class="sector-visuals"><div class="sector-visual"><img alt="Fenómenos y trazas luminosas" decoding="async" fetchpriority="high" loading="lazy" src="data:image/webp;base64,UklGRroFAABXRUJQVlA4IK4FAAAwIQCdASoXAVwAPrFSoU4nJKMpJRHq4SAWCWMHEFLku2RlX6wpnTgN6T/27C30x7T49Gtwx5RECanc4WPEhPqLTmiwTB1st7ENpwYMQg0LpCz+/2ZDi9gh4pA70gnnSqfm/KjSCmi8jfrIYa8LTgRgMgJVbNsGKifn7PNqaRjS/xNz2ik7sMCux8FgnWqoh452PMbBtHgqXNuGSyeiTlMfzVFlUyxdH7ElbXN0/zpPTsOY+5BUGlbN5jqVZYUxKS3ppGs8tiyniJ6di59dpiephmu00EgWbed5LyA7YPB2luYYMHNXALgefNELdwmSOavh2+WPES3Jr2BNteCTIw0rwfmYxACIWZFM3iT4iwMUdUVAAP78qKPdn9vYgGQ76+x+WzbE6ZdvyYbF/H8R4H3VHKUxzgHsiNwAz8HpQzbpiF9jpwob2Zq+xp2xdn9NQQiGy4fcsSS9rgQe6fxJ0SLPtSHlfmLSXbumt+y5Fk1PCOdoQ5JomtmjS++5CAizd8Fd0RoOPftVwWr7qUalRDUP41k3ikhc/kVfIzydZLLtaoMdI4iZE1/+XEJ/cKeFo+ieE2SAsScNLGFhszLv/3xoRSksonyxitcfyZrS5QrMnn/1qFrqnbTx/11rmOEA3YNwICmQDLjhOeIr7ZvzK5rhdMesI1Ozg9kNE90W8Q2tk7XadQd8w2E+b0GWhi7Kwk0s4HTPYeno8Ql+gW+y7da7KlQ77wH+HgPC/XMUYQMf1qo14HR+eYEtkz3O4gVrBdm5UbftPdcMIVS6imn1b7ot+A4ZfDa2MXcKZpjHhtIF/PpOVlOkwOFtNdJg5QR1fcIRahQznyFmiJH97x6CuvWFcF7aT5mujI7CSqZIuqGMrAeb92FHQYXVqMDtTQaOPc/SteAUmGaKAmP9F+0JhJRL239QmX1E0oLMQokj4hyV5r9P2yyS0p6E9mls9P5i/vkvn7id1q+8Tyf+FJBRtKPiVMJCa6jURtf0WS/7q8wyTX3TfTsQ0JnNrAMdiKu34RlgHKP8u2ima6GoQLy2agDrsQBGErsRnIip7wXwhbwCHBpiUx+GAjqGSzCYE6sGhdZUlvU0A94N3ppcKJ/ovMnp0oDzYnXxvyxAiBKmteIVK0MFImaZXZDfof5uY3eikSgv0TMFniQ4IWRRkvX1DYT3XAzGpAd6xbufoZ19Jsp/dQJQqq/57vP2iKjwn7wTt9gpFx43kd7a3i3O48dOzBAmoYi+D23g+d7TlJn+HRDqFx+AGtxZW+CLfdPZgb6jIZq2iYok/BWw3WFsGHTypZkWGidKiJie0pC3j45YaNDdRExHEFjnwXGAxHO2RaqgDqL6h/PcJQ8PmN8B3j9ckDh7TZIm9WHVvU898MoQLYUGVejQ+j6uB2IGMO1eef7EpGdzcF0fJoqJ8FoWy1XzfxXX3vhIlvyQnzD8MwI4Cvpz4fVZraFj4JotFhLtOawT/Q9fJezOMeroxck+ycAELF7iK0eldBcND7Ik8molQoBWe95DhFYGD7TeeXCJAsVlvrqtKa6fBFDnnpC720/k+tYC2wMyfwoea8sEeMFahAMjEsufSK849lU47QpmOkxq9pOMd5e8ZSKKDfHFKu+YWx+nKe/GGefjsSFB5zqnvdWbUnTtWvBgpxgyL1cLAdDKPtXBP7zySz45TZy/qKXJV2LpNTPh+7M0AjI0ihX7vB+MNi9gtyuzYrvK9+UCtxwqr9J9AMzXVcSh0AFLGJic3A5DlU5zY9c96vRUV2xstvRe6Fd6oqXOSy+pJn36lozTxYKmxA5n+AZyDOCh351IgF4w90r/tqViWsyJHkU6s2TCZo+I+XsK1uBSjnCFNuyT8RGrjMhfTvQ73bw8kqU1X1FsOeGLS8+GvZTidQ9EEfx5tvIKMmCBunSegN4TLxVo6heTatEZqbUgrti2lQAAAA==" style="display:block!important;visibility:visible!important;opacity:1!important"/><div class="sv-copy"><div class="sv-kicker">BARRIDO · OBSERVACIÓN</div><div class="sv-title">Fenómenos y trazas luminosas</div><div class="sv-desc">Apoyo visual para la lectura de contactos y partes en análisis.</div></div></div><div class="sector-visual"><img alt="Señales en seguimiento" decoding="async" fetchpriority="high" loading="lazy" src="data:image/webp;base64,UklGRm4EAABXRUJQVlA4IGIEAABwIQCdASoQAVwAPrFQn0wnPaowKnTa47AWCWcG+IesIjX/ni3gAmakdwdcONAostsvj9eW1lM0GFoCzRMU/4/BW6Ml4oxNMzVCX176LC/3aQOwfSgbm0oFzmKV7nseV4DO5oFzC5TonKbe6L/y5r2f6AUJ+YtLe1BFRGti/KviraEbI609q8YY1FnuAWC8JWHXdln7pC0rGFehTBkL5XfNIGb7bWndKy4z90mZTvIX8vD6huDkUWYSBOywgprVhIChNIfBMm5d8DmtAPaIjEDe600PCz08s+ERZgPdYdQG7onfwI3Qf9xcGJI6nW4jmEt4fnQNEJrx37qY8E29ZhRB7uvbfqDkm1xsCAD3EGQfREwZpjQA/va9ajnhCcbDf7GUjYGILp8+NW2rkbSrGO9vIV7JZFxSlWacwJ3dXZQHb2DFv8DTNnwCE5LionjoH71AK9Tjs0w7ZJEF/RSYgKuDKwvNc4hI5/xIIArXoVLMwG81Ij2g7T2+x9ksn8FFScVT3zHCB+uGDLNTuhIcVBHxpXQubxpwuZp7gswuzmKJW2jXKDryFrKPWStN1bsrH9TiqDEg4j7jWBnwTzIgs+tfbLUlJylP9mnGGyMCScXus1RyXoQqN1BkSN4gQpeTM8okoAhH1CDPkQiu62EC0+c+4Ce9X/kCb77rJczSQeJ//SGOzBPK1sEFML1DDzRicGI8emnhoojz8+eOKVp1/91r5kc0BL8sCx8FhIGyQmgAurdQSX9BJnGtix6fo6QjTOChc6bv+EcnAocmIgdMDxHAC98Y36AR4h6OWf5VOm8HPXOGPlDcmkd70rSELCTcwQo/qu0IuNF2ZMkCYLfEJG55NXq5R+Pmk0z0EIpAFF/Vi728faeKOv4jzBknu5gefavVj1KQNdDXFWY3kmV5Pc5fXR4XPcKeSZ+dY2Rr0650jUKa5i6CAhMtkZmHLd7Sk8DHL4xu++TARFA+AUpCikFEeuviGlaXrsDVxEv3Lp917PBXvnPtcWbXqNSt9VJG7D2SI9bV7jCheYnAnVmqakO4/isuU/fNaT//WEn+rg/hGcpwHq7XREf3MzQE3sh6iGujwJGymZFYYXmxshsK7bnN4PmdvMBEv7/pQngsS6UR5aRhgOA9/DeaC5SBqhnot/hfFR+JjeklwGR2wNv+RXzTath+ISkRtQ5zxDqmu5fcFlP16F3G1vyczVpRn83LbKyHaG7280V8LbfLOdQpY8bGxhSozyrlIMrpeaGeZeRP+JEet5fdFkU3ML+8podLDW9SFpFa7g5jt9CCQ6ZXf7fETV7R3epr0/RjRZ0sypT8WrpoRaGTkxouQ0WMebDlcSYOKHlIq/XoV4/MvvNwKYUhQa0RBTHYFODM6ApH4oigXj76FtcVQMZFDP2ArVbydQgjUt8fnPkiUN3ewiCntFZdahht45Ttrx6MlCxhyW4dWHBZiWHSFWXMniwbNmebMkQA0DeRTr+5V2lzZXNQro2VAAA=" style="display:block!important;visibility:visible!important;opacity:1!important"/><div class="sv-copy"><div class="sv-kicker">CONTACTO · REGISTRO</div><div class="sv-title">Señales en seguimiento</div><div class="sv-desc">Imagen de referencia, no evidencia por sí misma.</div></div></div></div>
+</section>
+<section class="view" id="view-resumen">
+<div class="page" id="resumen-page">
+<p class="lbl">BITÁCORA · RESUMEN</p>
+<h1>Resumen de partes</h1>
+<p class="lead">Todos los partes recientes y casos en análisis, reunidos en un solo resumen. El filtro oficial (CIAE) y la criba civil conviven aquí.</p>
 <div class="cx-toolbar" id="vig-toolbar">
 <input autocomplete="off" id="vig-search" placeholder="Filtrar título, provincia, lugar…" type="search"/>
 <select id="vig-status">
@@ -2462,8 +2476,8 @@ html.cx-scrolling body *,html.cx-scrolling body *::before,html.cx-scrolling body
 <div class="cx-count" id="vig-count">— PARTES</div>
 </div>
 <div class="cx-list" id="reports-list"></div>
-<div class="cx-empty" hidden="" id="vig-empty">SIN COINCIDENCIAS EN VIGILANCIA</div>
-</div><div aria-label="Galería visual del sector" class="sector-visuals"><div class="sector-visual"><img alt="Fenómenos y trazas luminosas" decoding="async" fetchpriority="high" loading="lazy" src="data:image/webp;base64,UklGRroFAABXRUJQVlA4IK4FAAAwIQCdASoXAVwAPrFSoU4nJKMpJRHq4SAWCWMHEFLku2RlX6wpnTgN6T/27C30x7T49Gtwx5RECanc4WPEhPqLTmiwTB1st7ENpwYMQg0LpCz+/2ZDi9gh4pA70gnnSqfm/KjSCmi8jfrIYa8LTgRgMgJVbNsGKifn7PNqaRjS/xNz2ik7sMCux8FgnWqoh452PMbBtHgqXNuGSyeiTlMfzVFlUyxdH7ElbXN0/zpPTsOY+5BUGlbN5jqVZYUxKS3ppGs8tiyniJ6di59dpiephmu00EgWbed5LyA7YPB2luYYMHNXALgefNELdwmSOavh2+WPES3Jr2BNteCTIw0rwfmYxACIWZFM3iT4iwMUdUVAAP78qKPdn9vYgGQ76+x+WzbE6ZdvyYbF/H8R4H3VHKUxzgHsiNwAz8HpQzbpiF9jpwob2Zq+xp2xdn9NQQiGy4fcsSS9rgQe6fxJ0SLPtSHlfmLSXbumt+y5Fk1PCOdoQ5JomtmjS++5CAizd8Fd0RoOPftVwWr7qUalRDUP41k3ikhc/kVfIzydZLLtaoMdI4iZE1/+XEJ/cKeFo+ieE2SAsScNLGFhszLv/3xoRSksonyxitcfyZrS5QrMnn/1qFrqnbTx/11rmOEA3YNwICmQDLjhOeIr7ZvzK5rhdMesI1Ozg9kNE90W8Q2tk7XadQd8w2E+b0GWhi7Kwk0s4HTPYeno8Ql+gW+y7da7KlQ77wH+HgPC/XMUYQMf1qo14HR+eYEtkz3O4gVrBdm5UbftPdcMIVS6imn1b7ot+A4ZfDa2MXcKZpjHhtIF/PpOVlOkwOFtNdJg5QR1fcIRahQznyFmiJH97x6CuvWFcF7aT5mujI7CSqZIuqGMrAeb92FHQYXVqMDtTQaOPc/SteAUmGaKAmP9F+0JhJRL239QmX1E0oLMQokj4hyV5r9P2yyS0p6E9mls9P5i/vkvn7id1q+8Tyf+FJBRtKPiVMJCa6jURtf0WS/7q8wyTX3TfTsQ0JnNrAMdiKu34RlgHKP8u2ima6GoQLy2agDrsQBGErsRnIip7wXwhbwCHBpiUx+GAjqGSzCYE6sGhdZUlvU0A94N3ppcKJ/ovMnp0oDzYnXxvyxAiBKmteIVK0MFImaZXZDfof5uY3eikSgv0TMFniQ4IWRRkvX1DYT3XAzGpAd6xbufoZ19Jsp/dQJQqq/57vP2iKjwn7wTt9gpFx43kd7a3i3O48dOzBAmoYi+D23g+d7TlJn+HRDqFx+AGtxZW+CLfdPZgb6jIZq2iYok/BWw3WFsGHTypZkWGidKiJie0pC3j45YaNDdRExHEFjnwXGAxHO2RaqgDqL6h/PcJQ8PmN8B3j9ckDh7TZIm9WHVvU898MoQLYUGVejQ+j6uB2IGMO1eef7EpGdzcF0fJoqJ8FoWy1XzfxXX3vhIlvyQnzD8MwI4Cvpz4fVZraFj4JotFhLtOawT/Q9fJezOMeroxck+ycAELF7iK0eldBcND7Ik8molQoBWe95DhFYGD7TeeXCJAsVlvrqtKa6fBFDnnpC720/k+tYC2wMyfwoea8sEeMFahAMjEsufSK849lU47QpmOkxq9pOMd5e8ZSKKDfHFKu+YWx+nKe/GGefjsSFB5zqnvdWbUnTtWvBgpxgyL1cLAdDKPtXBP7zySz45TZy/qKXJV2LpNTPh+7M0AjI0ihX7vB+MNi9gtyuzYrvK9+UCtxwqr9J9AMzXVcSh0AFLGJic3A5DlU5zY9c96vRUV2xstvRe6Fd6oqXOSy+pJn36lozTxYKmxA5n+AZyDOCh351IgF4w90r/tqViWsyJHkU6s2TCZo+I+XsK1uBSjnCFNuyT8RGrjMhfTvQ73bw8kqU1X1FsOeGLS8+GvZTidQ9EEfx5tvIKMmCBunSegN4TLxVo6heTatEZqbUgrti2lQAAAA==" style="display:block!important;visibility:visible!important;opacity:1!important"/><div class="sv-copy"><div class="sv-kicker">BARRIDO · OBSERVACIÓN</div><div class="sv-title">Fenómenos y trazas luminosas</div><div class="sv-desc">Apoyo visual para la lectura de contactos y partes en análisis.</div></div></div><div class="sector-visual"><img alt="Señales en seguimiento" decoding="async" fetchpriority="high" loading="lazy" src="data:image/webp;base64,UklGRm4EAABXRUJQVlA4IGIEAABwIQCdASoQAVwAPrFQn0wnPaowKnTa47AWCWcG+IesIjX/ni3gAmakdwdcONAostsvj9eW1lM0GFoCzRMU/4/BW6Ml4oxNMzVCX176LC/3aQOwfSgbm0oFzmKV7nseV4DO5oFzC5TonKbe6L/y5r2f6AUJ+YtLe1BFRGti/KviraEbI609q8YY1FnuAWC8JWHXdln7pC0rGFehTBkL5XfNIGb7bWndKy4z90mZTvIX8vD6huDkUWYSBOywgprVhIChNIfBMm5d8DmtAPaIjEDe600PCz08s+ERZgPdYdQG7onfwI3Qf9xcGJI6nW4jmEt4fnQNEJrx37qY8E29ZhRB7uvbfqDkm1xsCAD3EGQfREwZpjQA/va9ajnhCcbDf7GUjYGILp8+NW2rkbSrGO9vIV7JZFxSlWacwJ3dXZQHb2DFv8DTNnwCE5LionjoH71AK9Tjs0w7ZJEF/RSYgKuDKwvNc4hI5/xIIArXoVLMwG81Ij2g7T2+x9ksn8FFScVT3zHCB+uGDLNTuhIcVBHxpXQubxpwuZp7gswuzmKJW2jXKDryFrKPWStN1bsrH9TiqDEg4j7jWBnwTzIgs+tfbLUlJylP9mnGGyMCScXus1RyXoQqN1BkSN4gQpeTM8okoAhH1CDPkQiu62EC0+c+4Ce9X/kCb77rJczSQeJ//SGOzBPK1sEFML1DDzRicGI8emnhoojz8+eOKVp1/91r5kc0BL8sCx8FhIGyQmgAurdQSX9BJnGtix6fo6QjTOChc6bv+EcnAocmIgdMDxHAC98Y36AR4h6OWf5VOm8HPXOGPlDcmkd70rSELCTcwQo/qu0IuNF2ZMkCYLfEJG55NXq5R+Pmk0z0EIpAFF/Vi728faeKOv4jzBknu5gefavVj1KQNdDXFWY3kmV5Pc5fXR4XPcKeSZ+dY2Rr0650jUKa5i6CAhMtkZmHLd7Sk8DHL4xu++TARFA+AUpCikFEeuviGlaXrsDVxEv3Lp917PBXvnPtcWbXqNSt9VJG7D2SI9bV7jCheYnAnVmqakO4/isuU/fNaT//WEn+rg/hGcpwHq7XREf3MzQE3sh6iGujwJGymZFYYXmxshsK7bnN4PmdvMBEv7/pQngsS6UR5aRhgOA9/DeaC5SBqhnot/hfFR+JjeklwGR2wNv+RXzTath+ISkRtQ5zxDqmu5fcFlP16F3G1vyczVpRn83LbKyHaG7280V8LbfLOdQpY8bGxhSozyrlIMrpeaGeZeRP+JEet5fdFkU3ML+8podLDW9SFpFa7g5jt9CCQ6ZXf7fETV7R3epr0/RjRZ0sypT8WrpoRaGTkxouQ0WMebDlcSYOKHlIq/XoV4/MvvNwKYUhQa0RBTHYFODM6ApH4oigXj76FtcVQMZFDP2ArVbydQgjUt8fnPkiUN3ewiCntFZdahht45Ttrx6MlCxhyW4dWHBZiWHSFWXMniwbNmebMkQA0DeRTr+5V2lzZXNQro2VAAA=" style="display:block!important;visibility:visible!important;opacity:1!important"/><div class="sv-copy"><div class="sv-kicker">CONTACTO · REGISTRO</div><div class="sv-title">Señales en seguimiento</div><div class="sv-desc">Imagen de referencia, no evidencia por sí misma.</div></div></div></div>
+<div class="cx-empty" hidden="" id="vig-empty">SIN COINCIDENCIAS EN EL RESUMEN DE PARTES</div>
+</div>
 </section>
 <section class="view" id="view-archivo">
 <div class="page" id="arch-page">
@@ -10002,6 +10016,7 @@ main {
     ciencia: "view-ciencia",
     taxonomia: "view-taxonomia",
     objetos: "view-objetos",
+    resumen: "view-resumen",
     enlaces: "view-enlaces",
     agencia: "view-agencia",
     nuevos: "view-nuevos",
@@ -10066,7 +10081,7 @@ main {
     // Recuperar contenido dinámico si los grids quedaron vacíos
     if(name === "provincias") ensureProvincias();
     if(name === "archivo") ensureArchivo();
-    if(name === "vigilancia") ensureVigilancia();
+    if(name === "vigilancia" || name === "resumen") ensureVigilancia();
     if(name === "enlaces" || name === "agencia") ensureEnlaces();
     if(name === "nuevos"){ try{ if(typeof ensureNuevos==="function")ensureNuevos(); }catch(e){} }
     if(name === "reporte") ensureReporte();
@@ -16806,7 +16821,8 @@ body.cx-edge-notop #nav{display:none}
     {sel:"#nav-report-cta",label:"Reportar",ico:"✚",hl:true,fx:"rep"},
     {sel:"#nav-nuevos-cta",label:"Reportes recientes",ico:"◔",hl:true,fx:"new"},
     {sel:"#nav-declass-cta",label:"Declassified",ico:"▨",hl:true,fx:"dec"},
-    {sel:'#nav button[data-view="objetos"]',label:"Objetos/Tipos",ico:"⏣",hl:true,fx:"obj"}
+    {sel:'#nav button[data-view="objetos"]',label:"Objetos/Tipos",ico:"⏣",hl:true,fx:"obj"},
+    {sel:'#nav button[data-view="resumen"]',label:"Resumen de partes",ico:"≣",hl:true,fx:"res"}
   ];
   function $(id){return document.getElementById(id);}
   var edge=$("cx-edge"),handle=$("cx-edge-handle"),panel=$("cx-edge-panel"),list=$("cx-edge-list"),scrim=$("cx-edge-scrim"),pw=0,open=false;
@@ -16827,7 +16843,7 @@ body.cx-edge-notop #nav{display:none}
     CTAS.forEach(function(c){var t=document.querySelector(c.sel); if(t) list.appendChild(mk(c.fx==="obj"?c.label:(labelOf(t,c.label)||c.label),c.ico,"cta"+(c.hl?" hl":"")+(c.fx?" fx-"+c.fx:""),t));});
     var sep2=document.createElement("div");sep2.className="cx-edge-sep";sep2.textContent="SECCIONES";list.appendChild(sep2);
     document.querySelectorAll("#nav button[data-view]").forEach(function(btn){
-      if(btn.getAttribute("data-view")==="objetos") return;
+      if(btn.getAttribute("data-view")==="objetos"||btn.getAttribute("data-view")==="resumen") return;
       var ico=(btn.querySelector(".ico")||{}).textContent||"•";
       list.appendChild(mk(labelOf(btn,btn.getAttribute("data-view")),ico,"",btn));
     });
@@ -17075,6 +17091,116 @@ footer.foot > span{margin:0 auto;text-align:center}
       })(0);
     }
   }catch(e){}
+})();
+</script>
+<script id="centinela-resumen-partes-js">
+(function(){
+  "use strict";
+  /* A) Los partes ahora viven en #view-resumen: se copian a esa vista las reglas CSS que
+        estaban escritas para #view-vigilancia, así las tarjetas se ven exactamente igual. */
+  function splitTop(sel){
+    var out=[],d=0,cur="";
+    for(var i=0;i<sel.length;i++){
+      var c=sel.charAt(i);
+      if(c==="("||c==="[") d++; else if(c===")"||c==="]") d--;
+      if(c===","&&d===0){ out.push(cur); cur=""; } else cur+=c;
+    }
+    if(cur.trim()) out.push(cur);
+    return out;
+  }
+  function convStyle(rule){
+    var sel=rule.selectorText||"";
+    if(sel.indexOf("#view-vigilancia")<0) return "";
+    var keep=[];
+    splitTop(sel).forEach(function(part){
+      part=part.trim();
+      if(part.indexOf("#view-vigilancia")<0) return;
+      if(/submenu-mode|dossier|cx-sheet/.test(part)) return;
+      keep.push(part.split("#view-vigilancia").join("#view-resumen"));
+    });
+    if(!keep.length) return "";
+    var body=rule.cssText.slice(rule.cssText.indexOf("{"));
+    var rootOnly=keep.filter(function(k){return /#view-resumen\s*$/.test(k);});
+    var rest=keep.filter(function(k){return !/#view-resumen\s*$/.test(k);});
+    var txt="";
+    if(rest.length) txt+=rest.join(",")+body+"\n";
+    if(rootOnly.length){
+      /* la vista raíz no debe forzar su visibilidad: eso lo decide el enrutador */
+      var st=rule.style,decl="";
+      for(var i=0;i<st.length;i++){
+        var n=st[i];
+        if(/^(display|visibility|opacity|height|max-height)$/.test(n)) continue;
+        decl+=n+":"+st.getPropertyValue(n)+(st.getPropertyPriority(n)?" !important":"")+";";
+      }
+      if(decl) txt+=rootOnly.join(",")+"{"+decl+"}\n";
+    }
+    return txt;
+  }
+  function convRules(list){
+    var out="";
+    for(var i=0;i<list.length;i++){
+      var r=list[i];
+      if(r.type===1) out+=convStyle(r);
+      else if(r.type===4){
+        var inner=convRules(r.cssRules);
+        if(inner) out+="@media "+r.conditionText+"{\n"+inner+"}\n";
+      }
+    }
+    return out;
+  }
+  function mirror(){
+    if(document.getElementById("centinela-resumen-mirror")) return;
+    var css="";
+    Array.prototype.forEach.call(document.styleSheets,function(sh){
+      var rules; try{ rules=sh.cssRules; }catch(e){ return; }
+      if(rules) css+=convRules(rules);
+    });
+    if(!css) return;
+    var el=document.createElement("style");
+    el.id="centinela-resumen-mirror";
+    el.textContent=css;
+    document.head.appendChild(el);
+  }
+  if(document.readyState==="complete") mirror();
+  else window.addEventListener("load",mirror,{once:true});
+
+  /* B) Al cerrar la ficha de un parte, volver a Resumen de partes (antes volvía a Vigilancia). */
+  var fromParte=false,scrollY0=0,lastNav=0;
+  window.addEventListener("click",function(e){
+    var t=e.target; if(!t||!t.closest) return;
+    if(t.closest("#nav button, #nav-report-cta, #nav-nuevos-cta, #nav-declass-cta, #cx-edge-panel")){
+      lastNav=Date.now(); fromParte=false; return;
+    }
+    if(t.closest("#reports-list .rc")){
+      fromParte=true;
+      scrollY0=window.pageYOffset||document.documentElement.scrollTop||0;
+    }
+  },true);
+  function watch(){
+    var sheet=document.getElementById("cx-sheet");
+    if(!sheet||typeof MutationObserver==="undefined") return;
+    var wasOpen=!sheet.hidden,fromVig=false;
+    new MutationObserver(function(){
+      var open=!sheet.hidden;
+      if(open&&!wasOpen){ fromVig=fromParte||window.__centinelaDossierOrigin==="vigilancia"; }
+      if(!open&&wasOpen){
+        var go=fromVig&&Date.now()-lastNav>1000;
+        fromVig=false; fromParte=false;
+        if(go){
+          setTimeout(function(){
+            var v=document.getElementById("view-vigilancia");
+            var onVig=v&&(v.classList.contains("active"));
+            if(!onVig||typeof window.__centinelaShowSection!=="function") return;
+            try{ window.__centinelaShowSection("resumen"); }catch(err){ return; }
+            setTimeout(function(){ try{ window.scrollTo(0,scrollY0); }catch(err){} },60);
+          },80);
+        }
+      }
+      wasOpen=open;
+    }).observe(sheet,{attributes:true,attributeFilter:["hidden"]});
+  }
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",watch);
+  else watch();
 })();
 </script>
 </body></html>
