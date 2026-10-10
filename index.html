@@ -2433,6 +2433,71 @@ html.cx-scrolling body *,html.cx-scrolling body *::before,html.cx-scrolling body
   <p class="cx-live-foot">ISS y NASA se consultan en vivo (CORS/red). Si un feed falla, el resto sigue. Usá DEMO_KEY de NASA con moderación.</p>
 </section>
 
+<style id="cx-env-css">
+.cx-env{margin:1.1rem 0 1.4rem;padding:1rem 1rem 1.15rem;border:1px solid rgba(94,240,200,.28);border-radius:12px;background:linear-gradient(165deg,rgba(7,20,30,.94),rgba(6,12,22,.9))}
+.cx-env h2{margin:.2rem 0 .35rem;font-size:1.05rem;letter-spacing:.04em}
+.cx-env .lbl{margin:0 0 .35rem;font-size:.65rem;letter-spacing:.12em;color:#5ef0c8}
+.cx-env-lead{margin:0 0 .8rem;font-size:.84rem;color:var(--mute,#9ab);line-height:1.4}
+.cx-env-ctl{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:.55rem}
+.cx-env-ctl select{flex:1 1 12rem;min-width:0;padding:.5rem .6rem;border-radius:7px;border:1px solid rgba(94,240,200,.4);background:#07111c;color:#dff;font:600 .8rem system-ui}
+.cx-env button{background:rgba(94,240,200,.1);border:1px solid rgba(94,240,200,.4);color:#aef;padding:.5rem .7rem;border-radius:7px;cursor:pointer;font:600 .74rem system-ui;letter-spacing:.03em;min-height:2.4rem}
+.cx-env button:active{background:rgba(94,240,200,.25)}
+.cx-env-chips{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:.7rem}
+.cx-env-chip{font:700 .58rem var(--fm,monospace);letter-spacing:.08em;padding:.2rem .45rem;border-radius:99px;border:1px solid rgba(255,255,255,.15);color:#9bc}
+.cx-env-chip.ok{color:#6d8;border-color:rgba(102,221,136,.4)}.cx-env-chip.err{color:#e88;border-color:rgba(238,136,136,.4)}
+.cx-env-load,.cx-env-na{margin:.3rem 0;font-size:.8rem;color:#9bc}
+.cx-env-verdict{display:flex;gap:.9rem;align-items:center;padding:.75rem;border:1px solid rgba(94,240,200,.2);border-radius:10px;background:rgba(0,0,0,.28);margin-bottom:.75rem}
+.cx-env-ring{--c:#5ef0c8;flex:0 0 5.2rem;width:5.2rem;height:5.2rem;border-radius:50%;background:conic-gradient(var(--c) calc(var(--v)*1%),rgba(255,255,255,.09) 0);display:grid;place-items:center;position:relative}
+.cx-env-ring::before{content:"";position:absolute;inset:.42rem;border-radius:50%;background:#07111c}
+.cx-env-ring b,.cx-env-ring small{position:relative;z-index:1;grid-area:1/1}
+.cx-env-ring b{font:700 1.45rem var(--fd,system-ui);color:#eef;margin-top:-.45rem}.cx-env-ring small{font:700 .5rem var(--fm,monospace);letter-spacing:.14em;color:#8ab;margin-top:1.55rem}
+.cx-env-ring.hi{--c:#ffb040}.cx-env-ring.mid{--c:#e6d36a}.cx-env-ring.lo{--c:#5ef0c8}
+.cx-env-vmain{margin:0;font:700 1.15rem var(--fd,system-ui);letter-spacing:.08em}.cx-env-vmain.hi{color:#ffb040}.cx-env-vmain.mid{color:#e6d36a}.cx-env-vmain.lo{color:#5ef0c8}
+.cx-env-vsub{margin:.25rem 0 0;font-size:.8rem;line-height:1.4;color:#c5d0da}
+.cx-env-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:.7rem;margin-bottom:.7rem}
+.cx-env-card{border:1px solid rgba(94,240,200,.15);border-radius:10px;padding:.7rem .8rem;background:rgba(0,0,0,.25);margin-bottom:.7rem}
+.cx-env-grid .cx-env-card{margin-bottom:0}
+.cx-env-kv{display:flex;justify-content:space-between;gap:.6rem;padding:.22rem 0;border-bottom:1px dashed rgba(255,255,255,.07);font-size:.78rem}
+.cx-env-kv span{color:#8a9}.cx-env-kv b{color:#e8eef4;text-align:right;font-weight:600}
+.cx-env-note{margin:.45rem 0 0;font-size:.72rem;color:#8a9;line-height:1.4}
+.cx-env-warn{margin:.5rem 0 0;padding:.45rem .55rem;border-radius:7px;background:rgba(255,176,64,.1);border:1px solid rgba(255,176,64,.4);color:#ffcf8a;font-size:.74rem;line-height:1.4}
+.cx-env-kp{display:flex;gap:3px;margin:.1rem 0 .45rem}.cx-env-kp i{flex:1;height:.7rem;border-radius:2px;background:rgba(255,255,255,.09)}
+.cx-env-kp i.on{background:#5ef0c8}.cx-env-kp i.on.w{background:#e6d36a}.cx-env-kp i.on.d{background:#ff6b6b}
+.cx-env-spark{display:flex;align-items:flex-end;gap:2px;height:2.2rem;margin-top:.5rem}.cx-env-spark i{flex:1;background:#3ec4e8;border-radius:1px;opacity:.75}.cx-env-spark i.w{background:#e6d36a}.cx-env-spark i.d{background:#ff6b6b}
+.cx-env-lay{margin-bottom:.35rem}.cx-env-lay div{display:flex;align-items:center;gap:.5rem;font-size:.75rem;margin:.18rem 0}.cx-env-lay span{width:2.8rem;color:#8a9}.cx-env-lay b{width:2.4rem;text-align:right;color:#e8eef4;font-weight:600}
+.cx-env-bar{flex:1;display:block;height:.45rem;border-radius:99px;background:rgba(255,255,255,.09);overflow:hidden}.cx-env-bar i{display:block;height:100%;background:#3ec4e8}
+.cx-env-bar i.hi{background:#ffb040}.cx-env-bar i.mid{background:#e6d36a}.cx-env-bar i.lo{background:#5ef0c8}
+.cx-env-q{display:flex;align-items:flex-end;gap:.9rem}.cx-env-q>b{font:700 1.6rem var(--fd,system-ui);color:#eef;line-height:1}.cx-env-q small{font-size:.65rem;color:#8ab;margin-left:.25rem;font-weight:400}
+.cx-env-hrs{flex:1;display:flex;gap:3px;height:3.2rem;align-items:flex-end}.cx-env-hrs span{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center}
+.cx-env-hrs i{width:100%;background:rgba(255,255,255,.18);border-radius:2px 2px 0 0}.cx-env-hrs i.w{background:#e6d36a}.cx-env-hrs i.ok{background:#5ef0c8}.cx-env-hrs em{font:600 .5rem var(--fm,monospace);color:#789;margin-top:2px;font-style:normal}
+.cx-env-exr{padding:.45rem 0;border-bottom:1px dashed rgba(255,255,255,.07)}.cx-env-exr:last-child{border-bottom:0}
+.cx-env-exh{display:flex;justify-content:space-between;gap:.5rem;font-size:.82rem;font-weight:600;color:#e8eef4;margin-bottom:.25rem}.cx-env-exh b.hi{color:#ffb040}.cx-env-exh b.mid{color:#e6d36a}.cx-env-exh b.lo{color:#5ef0c8}
+.cx-env-exr p{margin:.25rem 0 0;font-size:.72rem;color:#8a9;line-height:1.35}.cx-env-exr p.tip{color:#b6c8d6}
+.cx-env-list{margin:.4rem 0 0;padding:0 0 0 1rem;font-size:.75rem;color:#c5d0da;line-height:1.45}.cx-env-zl{margin:.2rem 0 0;padding:0;list-style:none}
+.cx-env-zl li{display:flex;justify-content:space-between;padding:.45rem .3rem;border-bottom:1px dashed rgba(255,255,255,.07);font-size:.8rem;cursor:pointer}.cx-env-zl li:active{background:rgba(94,240,200,.1)}.cx-env-zl b{color:#5ef0c8}
+.cx-env-act{display:flex;flex-wrap:wrap;gap:.45rem;align-items:center;margin-bottom:.3rem}.cx-env-ok{font-size:.72rem;color:#6d8}
+.cx-env-det{margin:.2rem 0 .6rem;border:1px solid rgba(94,240,200,.15);border-radius:10px;background:rgba(0,0,0,.2);padding:.1rem .8rem}
+.cx-env-det>summary{cursor:pointer;padding:.65rem 0;font:700 .72rem var(--fm,monospace);letter-spacing:.1em;color:#5ef0c8}
+.cx-env-it{border-top:1px dashed rgba(255,255,255,.08);padding:.1rem 0}.cx-env-it summary{cursor:pointer;padding:.55rem 0;font-size:.82rem;font-weight:600;color:#e8eef4}
+.cx-env-it p{margin:.2rem 0 .45rem;font-size:.76rem;line-height:1.45;color:#b6c8d6}.cx-env-it p b{color:#9ef}
+.cx-env-fr{padding:.55rem 0;border-top:1px dashed rgba(255,255,255,.08)}.cx-env-fr b{font-size:.8rem;color:#e8eef4}.cx-env-fr p{margin:.2rem 0 0;font-size:.75rem;color:#b6c8d6;line-height:1.4}.cx-env-fr p.s{color:#ffcf8a}
+.cx-env-foot{margin:.6rem 0 0;font-size:.68rem;color:#6a7a88;line-height:1.45}
+</style>
+<section class="cx-env" id="cx-env" aria-label="Criba ambiental: clima, energía y frecuencias">
+  <p class="lbl">LABORATORIO AMBIENTAL · DATOS REALES</p>
+  <h2>Criba ambiental · clima, energía y frecuencias</h2>
+  <p class="cx-env-lead">Cruza el clima espacial (NOAA), la atmósfera (Open-Meteo), los sismos (USGS) y el cielo local para estimar qué fenómenos convencionales pueden confundirse con un avistamiento. Sirve para priorizar partes: no prueba ni descarta nada.</p>
+  <div class="cx-env-ctl">
+    <select id="cx-env-zone" aria-label="Zona a analizar"></select>
+    <button type="button" id="cx-env-refresh">↻ Actualizar</button>
+  </div>
+  <div class="cx-env-chips" id="cx-env-chips"></div>
+  <div id="cx-env-out"><p class="cx-env-load">Cargando datos…</p></div>
+  <details class="cx-env-det"><summary>ATLAS · FENÓMENOS QUE SE CONFUNDEN</summary><div id="cx-env-atlas"></div></details>
+  <details class="cx-env-det"><summary>ENERGÍA Y FRECUENCIAS · REFERENCIA</summary><div id="cx-env-freq"></div><p class="cx-env-foot">Ninguna de estas bandas tiene un vínculo demostrado con objetos no identificados. Se incluyen como contexto físico para explicar fallas de equipos y señales.</p></details>
+  <p class="cx-env-foot">Fuentes: NOAA Space Weather Prediction Center, Open-Meteo (modelos meteorológicos; uso no comercial) y USGS. PEC = presión de explicación convencional, un indicador heurístico de Centinela, no una medición científica. La calidad de vigilia no considera contaminación lumínica local ni la posición de planetas.</p>
+</section>
+
 <div aria-hidden="true" class="vigilancia-hud">
 <div class="radar-box">
 <p class="lbl">RADAR TÁCTICO</p>
@@ -12857,7 +12922,7 @@ function boost(map){
 }
 function run(){
   var map = window.map;
-  if(!map) return;
+  if(!map || typeof map.on !== "function" || typeof map.getStyle !== "function") return;
   boost(map);
   map.on("load", function(){ boost(map); });
   map.on("styledata", function(){ boost(map); });
@@ -17057,7 +17122,7 @@ footer.foot > span{margin:0 auto;text-align:center}
     /* 3) último recurso: si seguimos en la app, navegar a la dirección (muchas apps la derivan solas al navegador;
           si no, se abre en la misma app y al volver se regresa a esta sección) */
     setTimeout(function(){
-      if(left||document.hidden) return;
+      if(left||document.hidden||window.__cxNativeLinks) return;
       saveReturn();
       location.href=u;
     },1700);
@@ -17266,4 +17331,421 @@ body:has(#view-resumen.active) .scanlines{display:none!important}
 /* Imágenes decorativas: decodificación fuera del hilo principal y sin sombras/filtros pesados al desplazar */
 .orbital-logo-panel img,.cx-agency-logo img,.agencia-sello-visual img{content-visibility:visible!important}
 </style>
+<script id="cx-native-links">
+/* Enlaces externos -> ventana/app externa, con Centinela en segundo plano.
+   Si la app Android expone CentinelaNative.openExternal(url) se usa directamente (método más fiable).
+   Si no existe, no se toca nada: el WebView nativo atiende target="_blank" / window.open (onCreateWindow). */
+(function(){
+  "use strict";
+  var N=window.CentinelaNative;
+  if(!N||typeof N.openExternal!=="function") return;
+  window.__cxNativeLinks=true;
+
+  function abs(h){ try{ return new URL(h,location.href).href; }catch(e){ return ""; } }
+  function isExt(u){
+    if(!u) return false;
+    if(/^(mailto:|tel:|sms:|geo:|market:|intent:|whatsapp:|vnd\.youtube:|youtube:)/i.test(u)) return true;
+    if(!/^https?:/i.test(u)) return false;
+    if(location.protocol==="file:"||location.protocol==="content:") return true;
+    try{ return new URL(u).origin!==location.origin; }catch(e){ return true; }
+  }
+  var last="",lastT=0;
+  function go(u){
+    var now=Date.now();
+    if(u===last&&now-lastT<800) return;          /* evita doble apertura por doble toque */
+    last=u; lastT=now;
+    try{ if(typeof window.CentinelaSavePlace==="function") window.CentinelaSavePlace(); }catch(e){}
+    try{ N.openExternal(u); }catch(e){}
+  }
+
+  /* window = primera etapa de captura: corre antes que cualquier otro manejador de la página */
+  window.addEventListener("click",function(e){
+    if(e.button>0) return;
+    var a=e.target&&e.target.closest&&e.target.closest("a[href]");
+    if(!a) return;
+    var u=abs(a.getAttribute("href"));
+    if(!isExt(u)) return;
+    e.preventDefault(); e.stopImmediatePropagation();
+    go(u);
+  },true);
+
+  var prevOpen=window.open;
+  window.open=function(u){
+    try{ if(u){ var x=abs(String(u)); if(isExt(x)){ go(x); return null; } } }catch(e){}
+    return prevOpen.apply(window,arguments);
+  };
+})();
+</script>
+<script id="cx-env-core">
+(function(){
+"use strict";
+var D2R=Math.PI/180,R2D=180/Math.PI;
+function clamp(x,a,b){return x<a?a:(x>b?b:x);}
+function lin(x,a,b){if(x==null||isNaN(x))return null;return clamp((x-a)/(b-a),0,1);}
+function avgW(p){var s=0,w=0;p.forEach(function(q){if(q[0]!=null){s+=q[0]*q[1];w+=q[1];}});return w>0?s/w:null;}
+function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+function fx(v,n){return v==null||isNaN(v)?"—":(+v).toFixed(n==null?0:n);}
+
+/* ---------- astronomía local (sol / luna) ---------- */
+function dJ(date){return date.getTime()/86400000+2440587.5-2451545.0;}
+function sunC(d){var M=(357.5291+0.98560028*d)*D2R,C=(1.9148*Math.sin(M)+0.02*Math.sin(2*M)+0.0003*Math.sin(3*M))*D2R,L=M+C+102.9372*D2R+Math.PI,e=23.4397*D2R;
+  return {L:L,dec:Math.asin(Math.sin(e)*Math.sin(L)),ra:Math.atan2(Math.sin(L)*Math.cos(e),Math.cos(L))};}
+function moonC(d){var L=(218.316+13.176396*d)*D2R,M=(134.963+13.064993*d)*D2R,F=(93.272+13.22935*d)*D2R,
+  l=L+6.289*D2R*Math.sin(M),b=5.128*D2R*Math.sin(F),e=23.4397*D2R;
+  return {L:l,dec:Math.asin(Math.sin(b)*Math.cos(e)+Math.cos(b)*Math.sin(e)*Math.sin(l)),
+          ra:Math.atan2(Math.sin(l)*Math.cos(e)-Math.tan(b)*Math.sin(e),Math.cos(l))};}
+function alt(d,lat,lng,c){var H=(280.16+360.9856235*d)*D2R+lng*D2R-c.ra,p=lat*D2R;
+  return Math.asin(Math.sin(p)*Math.sin(c.dec)+Math.cos(p)*Math.cos(c.dec)*Math.cos(H))*R2D;}
+function sky(date,lat,lng){
+  var d=dJ(date),s=sunC(d),m=moonC(d),sa=alt(d,lat,lng,s),ma=alt(d,lat,lng,m);
+  var el=((m.L-s.L)%(2*Math.PI)+2*Math.PI)%(2*Math.PI),fr=el/(2*Math.PI),ill=(1-Math.cos(el))/2;
+  var pn=(fr<.03||fr>.97)?"Nueva":fr<.22?"Creciente":fr<.28?"Cuarto creciente":fr<.47?"Gibosa creciente":fr<.53?"Llena":fr<.72?"Gibosa menguante":fr<.78?"Cuarto menguante":"Menguante";
+  var ph=sa>0?"Día":sa>-6?"Crepúsculo civil":sa>-12?"Crepúsculo náutico":sa>-18?"Crepúsculo astronómico":"Noche cerrada";
+  return {sunAlt:sa,moonAlt:ma,moonIll:ill,moonName:pn,phase:ph};
+}
+
+/* ---------- parseo de feeds ---------- */
+function toObjs(a){if(!Array.isArray(a)||!a.length)return [];
+  if(Array.isArray(a[0])){var h=a[0];return a.slice(1).map(function(r){var o={};h.forEach(function(k,i){o[k]=r[i];});return o;});}return a;}
+function lastNum(o,k){for(var i=o.length-1;i>=0;i--){var v=parseFloat(o[i][k]);if(isFinite(v))return {v:v,t:o[i].time_tag};}return null;}
+function xClass(f){if(!(f>0))return null;var L,b,r;
+  if(f>=1e-4){L="X";b=1e-4;r=4;}else if(f>=1e-5){L="M";b=1e-5;r=3;}else if(f>=1e-6){L="C";b=1e-6;r=2;}else if(f>=1e-7){L="B";b=1e-7;r=1;}else{L="A";b=1e-8;r=0;}
+  return {txt:L+(f/b).toFixed(1),rank:r};}
+function gScale(kp){return kp==null?null:clamp(Math.round(kp)-4,0,5);}
+function buildSW(kpA,plA,mgA,xrA){
+  var S={kp:null,kpT:null,kpSeries:[],speed:null,dens:null,bz:null,bt:null,xr:null,xrTxt:null,g:null,ok:false};
+  var k=toObjs(kpA).filter(function(r){return r&&isFinite(parseFloat(r.Kp));});
+  if(k.length){S.kpSeries=k.slice(-24).map(function(r){return +r.Kp;});S.kp=+k[k.length-1].Kp;S.kpT=k[k.length-1].time_tag;S.g=gScale(S.kp);S.ok=true;}
+  var p=toObjs(plA),m=toObjs(mgA),sp=lastNum(p,"speed"),de=lastNum(p,"density"),bz=lastNum(m,"bz_gsm"),bt=lastNum(m,"bt");
+  if(sp){S.speed=sp.v;S.ok=true;} if(de)S.dens=de.v; if(bz){S.bz=bz.v;S.ok=true;} if(bt)S.bt=bt.v;
+  var x=toObjs(xrA).filter(function(r){return r&&(!r.energy||r.energy==="0.1-0.8nm")&&+r.flux>0;});
+  if(x.length){var c=xClass(+x[x.length-1].flux);if(c){S.xr=c.rank;S.xrTxt=c.txt;S.ok=true;}}
+  return S;}
+function interference(S){if(!S)return null;var p=[lin(S.kp,4,8),S.xr!=null?[0,0,.1,.5,.9][S.xr]:null,S.bz!=null?lin(-S.bz,6,20):null],m=null;
+  p.forEach(function(v){if(v!=null&&(m==null||v>m))m=v;});return m==null?null:m*100;}
+
+/* ---------- clima por zona ---------- */
+var KEYS={t:"temperature_2m",rh:"relative_humidity_2m",td:"dew_point_2m",cc:"cloud_cover",cl:"cloud_cover_low",cm:"cloud_cover_mid",ch:"cloud_cover_high",
+  cape:"cape",li:"lifted_index",vis:"visibility",w10:"wind_speed_10m",g10:"wind_gusts_10m",p:"pressure_msl",w7:"wind_speed_700hPa",w5:"wind_speed_500hPa",rh7:"relative_humidity_700hPa"};
+function wxAt(loc,i){var h=(loc&&loc.hourly)||{},o={};Object.keys(KEYS).forEach(function(k){var a=h[KEYS[k]],v=a?a[i]:null;o[k]=(v==null||isNaN(v))?null:+v;});return o;}
+function hourIdx(loc,date){var t=(loc&&loc.hourly&&loc.hourly.time)||[],key=date.toISOString().slice(0,13)+":00",i=t.indexOf(key);return i<0?0:i;}
+
+/* ---------- sismos ---------- */
+function hav(a,b,c,d){var R=6371,x=(c-a)*D2R,y=(d-b)*D2R,s=Math.sin(x/2)*Math.sin(x/2)+Math.cos(a*D2R)*Math.cos(c*D2R)*Math.sin(y/2)*Math.sin(y/2);return 2*R*Math.asin(Math.sqrt(s));}
+function nearQuakes(Q,lat,lng,now){if(!Q||!Q.length)return [];var lim=now.getTime()-72*3600e3;
+  return Q.filter(function(q){return q.time>=lim;}).map(function(q){return {mag:q.mag,place:q.place,time:q.time,d:hav(lat,lng,q.lat,q.lng)};})
+    .filter(function(q){return q.d<=300;}).sort(function(a,b){return b.mag-a.mag;});}
+
+/* ---------- explicaciones convencionales ---------- */
+var MOUNT={uritorco:1,punilla:1,gigantes:1,bariloche:1,jacobacci:1,trancas:1,famailla:1,tafi:1,mendoza:1,humahuaca:1,salta:1,cafayate:1,neuquen:1,sanmartin:1,sanjuan:1,chilecito:1,catamarca:1,chalten:1,merlo:1,ushuaia:1};
+function auroraReq(lat){var a=Math.abs(lat);return a>=54?5:a>=50?6:a>=45?7:a>=40?8:9;}
+function explain(z,w,sk,S,near){
+  var out=[],cc=w.cc,clear=cc==null?.5:1-cc/100,nightLit=sk.sunAlt>-12;
+  var f=avgW([[lin(w.w7,30,70),.4],[lin(w.w5,40,100),.2],[lin(w.rh7,50,85),.25],[lin(w.cm,10,60),.15]]);
+  out.push({id:"lent",ico:"☁",name:"Nube lenticular",score:f==null?null:f*(MOUNT[z.id]?1:.45)*(nightLit?1:.6)*100,
+    why:"viento 700 hPa "+fx(w.w7)+" km/h · HR 700 hPa "+fx(w.rh7)+"% · nubes medias "+fx(w.cm)+"%",
+    tip:"Disco liso que no se mueve aunque haya viento fuerte; se ilumina al crepúsculo."});
+  f=avgW([[lin(w.cape,300,2500),.55],[w.li!=null?lin(-w.li,0,6):null,.25],[lin(cc,40,100),.2]]);
+  out.push({id:"torm",ico:"⚡",name:"Tormenta (rayos, sprites, fuego de San Telmo)",score:f==null?null:f*100,
+    why:"CAPE "+fx(w.cape)+" J/kg · índice de elevación "+fx(w.li,1)+" · nubosidad "+fx(cc)+"%",
+    tip:"Destellos breves sobre tormentas lejanas; mirá el horizonte con cielo despejado encima."});
+  var req=auroraReq(z.lat),af=S&&S.kp!=null?lin(S.kp,req-2,req):null;
+  out.push({id:"aur",ico:"🌌",name:"Aurora austral / arco SAR / STEVE",score:af==null?null:af*(lin(-sk.sunAlt,10,18)||0)*(1-.8*(1-clear))*100,
+    why:"Kp "+(S&&S.kp!=null?fx(S.kp,1):"—")+" · Kp orientativo para esta latitud ≥ "+req,
+    tip:"Resplandor rojizo estable o banda violácea angosta hacia el sur; las fotos la muestran mejor que el ojo."});
+  var a=sk.sunAlt,base=a>0?4:a>-3?40:a>=-18?85:a>=-24?40:15;
+  out.push({id:"sat",ico:"🛰",name:"Satélites, trenes Starlink y reentradas",score:base*(1-.85*(1-clear)),
+    why:"sol a "+fx(a,1)+"° ("+sk.phase.toLowerCase()+") · nubosidad "+fx(cc)+"%",
+    tip:"Puntos en fila o línea recta a velocidad constante; visibles cuando el sol los ilumina y vos estás en sombra."});
+  f=avgW([[w.w10!=null?lin(15-w.w10,0,12):null,.35],[lin(w.rh,70,95),.3],[(w.t!=null&&w.td!=null)?lin(4-(w.t-w.td),0,3.5):null,.2],[a<0?1:.2,.15]]);
+  out.push({id:"esp",ico:"🌫",name:"Espejismo / inversión térmica",score:f==null?null:f*100,
+    why:"viento 10 m "+fx(w.w10)+" km/h · HR "+fx(w.rh)+"% · T−Td "+(w.t!=null&&w.td!=null?fx(w.t-w.td,1):"—")+"°C",
+    tip:"Luces lejanas que flotan, se duplican o cambian de color en noche calma y húmeda."});
+  out.push({id:"pla",ico:"✦",name:"Planetas y estrellas brillantes",score:clear*(a>0?.05:a>-18?.9:.55)*60,
+    why:"cielo "+(clear>.7?"despejado":clear>.3?"parcial":"cubierto")+" · "+sk.phase.toLowerCase()+" (no se calculan posiciones planetarias)",
+    tip:"Venus, Júpiter o Sirio bajos parpadean y cambian de color. Verificar en una app de cielo."});
+  var q=near&&near[0],qs=null;
+  if(q)qs=Math.min(.7,lin(q.mag,4.5,6.5)*lin(300-q.d,0,300))*100;
+  out.push({id:"sis",ico:"🌐",name:"Luces sísmicas (hipótesis debatida)",score:qs==null?0:qs,
+    why:q?("M"+q.mag.toFixed(1)+" a "+fx(q.d)+" km en las últimas 72 h"):"sin sismos M≥4 a menos de 300 km en 72 h",
+    tip:"Luminiscencias reportadas cerca de sismos fuertes; el mecanismo no está establecido."});
+  return out;}
+function pecOf(ex){var m=0;ex.forEach(function(e){if(e.score!=null&&e.score>m)m=e.score;});return m;}
+function quality(w,sk){var clear=w.cc==null?.5:1-w.cc/100,dark=lin(-sk.sunAlt,6,18)||0,mf=1-.6*sk.moonIll*(sk.moonAlt>0?(lin(sk.moonAlt,0,30)||0):0),vf=w.vis==null?1:(lin(w.vis,2000,20000)*.4+.6);
+  return 100*clear*dark*mf*vf;}
+function analyze(z,loc,date,S,Q){
+  var w=wxAt(loc,hourIdx(loc,date)),sk=sky(date,z.lat,z.lng),nq=nearQuakes(Q,z.lat,z.lng,date),ex=explain(z,w,sk,S,nq);
+  return {z:z,w:w,sk:sk,near:nq,ex:ex,pec:pecOf(ex),q:quality(w,sk)};}
+function next12(z,loc,date){var i0=hourIdx(loc,date),t=(loc.hourly&&loc.hourly.time)||[],o=[];
+  for(var k=0;k<12&&i0+k<t.length;k++){var d=new Date(t[i0+k]+"Z"),w=wxAt(loc,i0+k),sk=sky(d,z.lat,z.lng);o.push({h:d.getHours(),q:quality(w,sk)});}return o;}
+
+window.CXENV={clamp:clamp,lin:lin,sky:sky,buildSW:buildSW,xClass:xClass,gScale:gScale,interference:interference,wxAt:wxAt,hourIdx:hourIdx,
+  hav:hav,nearQuakes:nearQuakes,explain:explain,pecOf:pecOf,quality:quality,analyze:analyze,next12:next12,esc:esc,fx:fx,toObjs:toObjs};
+})();
+</script>
+<script id="cx-env-ui">
+(function(){
+"use strict";
+var C=window.CXENV,esc=C.esc,fx=C.fx;
+var URLS={
+  kp:"https://services.swpc.noaa.gov/products/noaa-planetary-k-index.json",
+  pl:"https://services.swpc.noaa.gov/products/solar-wind/plasma-2-hour.json",
+  mg:"https://services.swpc.noaa.gov/products/solar-wind/mag-2-hour.json",
+  xr:"https://services.swpc.noaa.gov/json/goes/primary/xrays-6-hour.json"};
+var VARS=[
+ "temperature_2m,relative_humidity_2m,dew_point_2m,cloud_cover,cloud_cover_low,cloud_cover_mid,cloud_cover_high,cape,lifted_index,visibility,wind_speed_10m,wind_gusts_10m,pressure_msl,wind_speed_700hPa,wind_speed_500hPa,relative_humidity_700hPa",
+ "temperature_2m,relative_humidity_2m,dew_point_2m,cloud_cover,cloud_cover_low,cloud_cover_mid,cloud_cover_high,cape,visibility,wind_speed_10m,wind_gusts_10m,pressure_msl",
+ "temperature_2m,relative_humidity_2m,cloud_cover,wind_speed_10m,pressure_msl"];
+var ATLAS=[
+ ["☁","Nube lenticular","Altocúmulo estacionario en forma de lente o disco, formado en la cresta de ondas de montaña.","Viento fuerte en altura (≳ 40 km/h a 700 hPa) cruzando cordillera y una capa media húmeda.","No se desplaza aunque haya viento; bordes lisos; se tiñe de colores al crepúsculo. Frecuente en Mendoza, Bariloche, Neuquén, Salta y las sierras de Córdoba."],
+ ["⚡","Tormenta y eventos luminosos transitorios (sprites, elves, jets)","Destellos rojizos o azulados sobre tormentas a cientos de kilómetros, de milisegundos de duración.","CAPE alto e inestabilidad; cielo despejado sobre el observador y tormenta en el horizonte.","Son demasiado breves para seguirse con la vista; se registran con cámaras sensibles. El campo eléctrico de buen tiempo ronda los 100–130 V/m en superficie y crece mucho bajo tormentas."],
+ ["🔥","Fuego de San Telmo","Descarga en corona en puntas (antenas, mástiles, cerros) bajo un campo eléctrico intenso.","Tormenta cercana o nubes muy cargadas; a veces con zumbido y olor a ozono.","Brillo azul-violáceo fijo sobre objetos puntiagudos; no se desplaza."],
+ ["🔴","Rayo globular","Esferas luminosas de segundos de duración durante o después de tormentas.","Tormenta eléctrica reciente.","Fenómeno raro y sin mecanismo consensuado; hay un único registro espectral aislado (China, 2012). Tratarlo como hipótesis abierta."],
+ ["🌐","Luces sísmicas","Luminiscencias reportadas cerca de sismos fuertes, sobre todo en zonas de falla.","Sismo importante (M≥5) en las horas o días previos a menos de unos 300 km.","El mecanismo está debatido y no sirve como predictor. Se registra como contexto, no como explicación cerrada."],
+ ["🌌","Aurora austral, arco SAR y STEVE","Resplandor rojizo estable (arco SAR) o banda violácea angosta (STEVE) hacia el sur.","Kp alto (tormenta geomagnética); en Argentina, sobre todo Patagonia y Tierra del Fuego; solo con tormentas fuertes en latitudes menores.","La cámara del teléfono en modo noche la capta mejor que el ojo."],
+ ["🟢","Aeroluminiscencia (airglow)","Bandas tenues verdosas o rojizas de la alta atmósfera (~90 y ~250 km).","Siempre presente; se ve en fotos de larga exposición con cielo oscuro.","Aparece como 'nubes' verdes en fotos nocturnas que el ojo no percibe."],
+ ["🛰","Satélites, trenes Starlink y reentradas","Puntos en fila, líneas rectas o destellos de paneles; reentradas como bólidos fragmentados.","Crepúsculo: el sol ilumina el satélite y el observador está en sombra.","Velocidad constante, sin sonido, trayectoria recta; verificar con una app de seguimiento de satélites."],
+ ["🌫","Espejismos e inversión térmica","Luces lejanas que flotan, se duplican, tiemblan o cambian de color.","Noche calma y húmeda, aire frío cerca del suelo; típico sobre agua o llanura.","Las luces 'despegan' del horizonte y vuelven; el efecto depende de la altura del observador."],
+ ["🕯","Luz mala (folklore)","Luces errantes sobre campo o bañado en el NEA y la Pampa.","Zonas húmedas y llanas, noches calmas.","Se han propuesto gases de pantano e inversiones térmicas, además de faros lejanos; ninguna explicación está cerrada."]];
+var FREQ=[
+ ["7,83 Hz (+14,3 · 20,8 · 27,3 · 33,8)","Resonancias Schumann: la cavidad Tierra–ionosfera, excitada por los rayos de todo el planeta.","Medida y real. Vínculo con avistamientos: no demostrado."],
+ ["3–30 Hz (ELF) · 3–30 kHz (VLF)","Radiación de rayos (sferics) y silbidos (whistlers) que viajan por el campo magnético.","Se escucha con receptores VLF. Marca actividad de tormentas, no objetos."],
+ ["3–30 MHz (HF)","Propagación ionosférica; los apagones de radio acompañan a las fulguraciones solares fuertes (clase M/X).","Explica fallas de radio simultáneas con una llamarada solar."],
+ ["1,2–1,6 GHz (GNSS)","Centelleo ionosférico durante tormentas geomagnéticas degrada el GPS.","Un GPS o brújula 'enloquecidos' con Kp alto tiene explicación física."],
+ ["2,4 y 5 GHz · 1–10 GHz","Wi-Fi, Bluetooth, radares meteorológicos y aeronáuticos.","Fuentes humanas que interfieren cámaras y equipos."],
+ ["380–750 nm (visible) · hasta ~1000 nm","Varias cámaras captan infrarrojo cercano que el ojo no ve (mandos, sensores).","Una 'luz' que solo aparece en la foto puede ser infrarroja."]];
+var MAXSEL=60;
+
+var root=document.getElementById("cx-env");if(!root)return;
+var $=function(id){return document.getElementById(id);};
+var ST={S:null,W:null,Q:null,loc:[],t:0,busy:false,zone:null,me:null,chips:{noaa:"load",meteo:"load",usgs:"load"}};
+function zones(){var z=(typeof HOTSPOTS!=="undefined"&&HOTSPOTS)?HOTSPOTS.map(function(h){return {id:h.id,name:h.shortName||h.name,full:h.name,prov:h.province,lat:h.lat,lng:h.lng};}):[];
+  return z;}
+function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v);}catch(e){}return null;}
+
+/* ---------- red ---------- */
+function jget(u,ms){return new Promise(function(res,rej){var c=window.AbortController?new AbortController():null,t=setTimeout(function(){if(c)c.abort();rej(new Error("timeout"));},ms||14000);
+  fetch(u,{cache:"no-store",signal:c?c.signal:undefined}).then(function(r){clearTimeout(t);if(!r.ok)throw new Error("HTTP "+r.status);return r.json();}).then(res,function(e){clearTimeout(t);rej(e);});});}
+function loadSW(){return Promise.all([jget(URLS.kp).catch(function(){return null;}),jget(URLS.pl).catch(function(){return null;}),jget(URLS.mg).catch(function(){return null;}),jget(URLS.xr,20000).catch(function(){return null;})])
+  .then(function(r){var S=C.buildSW(r[0],r[1],r[2],r[3]);ST.S=S.ok?S:null;ST.chips.noaa=S.ok?"ok":"err";});}
+function loadWX(){var Z=zones();if(!Z.length){ST.chips.meteo="err";return Promise.resolve();}
+  var la=Z.map(function(z){return z.lat.toFixed(3);}).join(","),lo=Z.map(function(z){return z.lng.toFixed(3);}).join(",");
+  function attempt(i){if(i>=VARS.length)return Promise.reject(new Error("meteo"));
+    return jget("https://api.open-meteo.com/v1/forecast?latitude="+la+"&longitude="+lo+"&hourly="+VARS[i]+"&forecast_days=2&timezone=GMT&wind_speed_unit=kmh",20000)
+      .then(function(j){var a=Array.isArray(j)?j:[j];if(!a.length||!a[0]||!a[0].hourly)throw new Error("fmt");return a;}).catch(function(){return attempt(i+1);});}
+  return attempt(0).then(function(a){ST.W={};Z.forEach(function(z,i){ST.W[z.id]=a[i]||null;});ST.chips.meteo="ok";},function(){ST.W=null;ST.chips.meteo="err";});}
+function loadQ(){var now=new Date(),st=new Date(now.getTime()-7*864e5).toISOString().slice(0,19);
+  return jget("https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&minmagnitude=4&orderby=time&limit=300&minlatitude=-60&maxlatitude=-17&minlongitude=-80&maxlongitude=-50&starttime="+st,16000)
+    .then(function(j){ST.Q=(j.features||[]).map(function(f){var g=f.geometry&&f.geometry.coordinates||[],p=f.properties||{};return {mag:+p.mag,place:p.place||"",time:+p.time,lat:+g[1],lng:+g[0]};}).filter(function(q){return isFinite(q.mag)&&isFinite(q.lat);});ST.chips.usgs="ok";},
+      function(){ST.Q=null;ST.chips.usgs="err";});}
+function refresh(force){if(ST.busy)return;if(!force&&ST.t&&Date.now()-ST.t<10*60e3){render();return;}
+  ST.busy=true;ST.chips={noaa:"load",meteo:"load",usgs:"load"};render();
+  Promise.all([loadSW(),loadWX(),loadQ()]).then(function(){ST.t=Date.now();},function(){}).then(function(){ST.busy=false;render();});}
+
+/* ---------- vista ---------- */
+function band(p){return p>=70?["ALTA","hi"]:p>=40?["MEDIA","mid"]:["BAJA","lo"];}
+function bar(v,cls){return '<span class="cx-env-bar"><i class="'+(cls||"")+'" style="width:'+Math.round(C.clamp(v||0,0,100))+'%"></i></span>';}
+function row(k,v){return '<div class="cx-env-kv"><span>'+k+'</span><b>'+v+'</b></div>';}
+function curZone(){var Z=zones(),id=ST.zone||"uritorco";return Z.filter(function(z){return z.id===id;})[0]||Z[0];}
+function analysisFor(z,date){var loc=ST.W&&ST.W[z.id];if(!loc)loc={hourly:{time:[]}};return C.analyze(z,loc,date,ST.S,ST.Q);}
+function kpCell(kp){var h="";for(var i=0;i<9;i++){var on=kp!=null&&kp>=i+.5?"on":"";h+='<i class="'+on+(i>=4?" w":"")+(i>=6?" d":"")+'"></i>';}return '<div class="cx-env-kp">'+h+'</div>';}
+function spark(a){if(!a||!a.length)return"";var h="";a.forEach(function(v){h+='<i style="height:'+Math.max(6,v/9*100)+'%" class="'+(v>=5?"d":v>=4?"w":"")+'"></i>';});return '<div class="cx-env-spark" title="Kp, últimas 72 h">'+h+'</div>';}
+function chips(){var n={noaa:"NOAA",meteo:"OPEN-METEO",usgs:"USGS"};return Object.keys(n).map(function(k){var s=ST.chips[k];return '<span class="cx-env-chip '+s+'">'+n[k]+" "+(s==="ok"?"●":s==="err"?"✕":"…")+'</span>';}).join("");}
+
+function render(){
+  var out=$("cx-env-out"),ch=$("cx-env-chips");if(!out)return;ch.innerHTML=chips();
+  var Z=zones(),sel=$("cx-env-zone");
+  if(sel&&sel.getAttribute("data-n")!==String(Z.length)){sel.innerHTML=Z.map(function(z){return '<option value="'+esc(z.id)+'">'+esc(z.name)+(z.prov?" · "+esc(z.prov):"")+"</option>";}).join("");sel.setAttribute("data-n",String(Z.length));}
+  var z=curZone();if(!z){out.innerHTML='<p class="cx-env-load">Sin zonas disponibles.</p>';return;}ST.zone=z.id;if(sel)sel.value=z.id;
+  if(ST.busy&&!ST.t){out.innerHTML='<p class="cx-env-load">Consultando NOAA, Open-Meteo y USGS…</p>';return;}
+  var now=new Date(),A=analysisFor(z,now),S=ST.S,w=A.w,sk=A.sk,hasW=!!(ST.W&&ST.W[z.id]),ex=A.ex.slice().sort(function(a,b){return (b.score||0)-(a.score||0);}),pb=hasW?band(A.pec):["S/D","lo"],itf=C.interference(S);
+  var h='';
+  /* veredicto */
+  h+='<div class="cx-env-verdict"><div class="cx-env-ring '+pb[1]+'" style="--v:'+(hasW?Math.round(A.pec):0)+'"><b>'+(hasW?Math.round(A.pec):"—")+'</b><small>PEC</small></div>'+
+     '<div class="cx-env-vtxt"><p class="lbl">PRESIÓN DE EXPLICACIÓN CONVENCIONAL · '+esc(z.name.toUpperCase())+'</p><p class="cx-env-vmain '+pb[1]+'">'+pb[0]+'</p>'+
+     '<p class="cx-env-vsub">'+(!hasW?"Sin datos atmosféricos de esta zona no se puede estimar. Actualizá cuando haya conexión.":A.pec>=70?"Las condiciones actuales favorecen una explicación ambiental: "+esc(ex[0].name)+". Descartarla antes de clasificar.":
+       A.pec>=40?"Hay una explicación ambiental plausible ("+esc(ex[0].name)+"); contrastar con la descripción del parte.":
+       "El ambiente no ofrece una explicación obvia. Revisar aviación, satélites y planetas antes de clasificar como residual.")+'</p></div></div>';
+  /* calidad de vigilia */
+  var nx=hasW?C.next12(z,ST.W[z.id],now):[];
+  h+='<div class="cx-env-card wide"><p class="lbl">CALIDAD DE VIGILIA · PRÓXIMAS 12 H (HORA LOCAL)</p><div class="cx-env-q"><b>'+Math.round(A.q)+'<small>/100 ahora</small></b>'+
+     '<div class="cx-env-hrs">'+(nx.length?nx.map(function(o){return '<span><i style="height:'+Math.max(4,o.q)+'%" class="'+(o.q>=60?"ok":o.q>=30?"w":"")+'"></i><em>'+(o.h<10?"0":"")+o.h+'</em></span>';}).join(""):'<em class="cx-env-na">sin pronóstico</em>')+'</div></div>'+
+     '<p class="cx-env-note">Combina cielo despejado, oscuridad (sol bajo el horizonte), luna y visibilidad.</p></div>';
+  h+='<div class="cx-env-grid">';
+  /* clima espacial */
+  h+='<div class="cx-env-card"><p class="lbl">CLIMA ESPACIAL · NOAA SWPC</p>';
+  if(S){h+=kpCell(S.kp)+row("Índice Kp",S.kp!=null?fx(S.kp,1)+" · G"+S.g:"—")+row("Viento solar",S.speed!=null?fx(S.speed)+" km/s":"—")+row("Densidad",S.dens!=null?fx(S.dens,1)+" p/cm³":"—")+
+     row("Bz (campo IMF)",S.bz!=null?fx(S.bz,1)+" nT"+(S.bz<=-10?" ⚠":""):"—")+row("Rayos X (GOES)",S.xrTxt||"—")+spark(S.kpSeries)+
+     (itf!=null&&itf>=45?'<p class="cx-env-warn">⚠ Posible interferencia en brújula, GPS y radio ('+Math.round(itf)+'/100). Un testigo con equipos fallando tiene una explicación física.</p>':'<p class="cx-env-note">Sin perturbación relevante para equipos.</p>');}
+  else h+='<p class="cx-env-na">Sin datos de NOAA ahora.</p>';
+  h+='</div>';
+  /* atmósfera */
+  h+='<div class="cx-env-card"><p class="lbl">ATMÓSFERA · '+esc(z.name.toUpperCase())+'</p>';
+  if(hasW){h+='<div class="cx-env-lay">'+[["Alta",w.ch],["Media",w.cm],["Baja",w.cl]].map(function(l){return '<div><span>'+l[0]+'</span>'+bar(l[1])+'<b>'+fx(l[1])+'%</b></div>';}).join("")+'</div>'+
+     row("CAPE",w.cape!=null?fx(w.cape)+" J/kg":"—")+row("Índice de elevación",fx(w.li,1))+row("Humedad / T / Td",fx(w.rh)+"% · "+fx(w.t,1)+"° / "+fx(w.td,1)+"°")+
+     row("Viento 10 m / ráfagas",fx(w.w10)+" / "+fx(w.g10)+" km/h")+row("Viento 700 / 500 hPa",fx(w.w7)+" / "+fx(w.w5)+" km/h")+row("Visibilidad",w.vis!=null?fx(w.vis/1000,1)+" km":"—")+row("Presión",fx(w.p)+" hPa");}
+  else h+='<p class="cx-env-na">Sin datos de Open-Meteo ahora.</p>';
+  h+='</div>';
+  /* sismos */
+  h+='<div class="cx-env-card"><p class="lbl">ACTIVIDAD SÍSMICA · USGS (7 DÍAS, M≥4)</p>';
+  if(ST.Q){var mx=0;ST.Q.forEach(function(q){if(q.mag>mx)mx=q.mag;});h+=row("Región (Argentina y Chile)",ST.Q.length+" sismos · máx. M"+(ST.Q.length?mx.toFixed(1):"—"))+
+     row("A <300 km de la zona, 72 h",A.near.length+(A.near.length?" · máx. M"+A.near[0].mag.toFixed(1):""));
+    if(A.near.length)h+='<ul class="cx-env-list">'+A.near.slice(0,3).map(function(q){return '<li>M'+q.mag.toFixed(1)+" · "+fx(q.d)+" km · "+esc(q.place)+"</li>";}).join("")+'</ul>';
+    else h+='<p class="cx-env-note">Sin sismos cercanos recientes.</p>';}
+  else h+='<p class="cx-env-na">Sin datos de USGS ahora.</p>';
+  h+='</div>';
+  /* cielo */
+  h+='<div class="cx-env-card"><p class="lbl">CIELO LOCAL · SOL Y LUNA</p>'+row("Fase del cielo",esc(sk.phase))+row("Sol",fx(sk.sunAlt,1)+"° sobre el horizonte")+
+     row("Luna",esc(sk.moonName)+" · "+Math.round(sk.moonIll*100)+"%")+row("Altura de la Luna",fx(sk.moonAlt,0)+"°"+(sk.moonAlt>0?" (visible)":" (bajo el horizonte)"))+
+     '<p class="cx-env-note">'+(sk.sunAlt<=-3&&sk.sunAlt>=-18?"Ventana de satélites iluminados (Starlink, ISS, reentradas).":sk.sunAlt>0?"Es de día: lenticulares, globos y aviones dominan.":"Cielo oscuro: buen momento para registrar.")+'</p></div>';
+  h+='</div>';
+  /* ranking de explicaciones */
+  h+='<div class="cx-env-card wide"><p class="lbl">QUÉ PODRÍA ESTAR CONFUNDIÉNDOSE EN ESTA ZONA</p><div class="cx-env-ex">'+ex.map(function(e){var sc=e.score==null?0:e.score,b=band(sc);
+    return '<div class="cx-env-exr"><div class="cx-env-exh"><span>'+e.ico+" "+esc(e.name)+'</span><b class="'+b[1]+'">'+(e.score==null?"s/d":Math.round(sc))+'</b></div>'+bar(sc,b[1])+'<p>'+esc(e.why)+'</p>'+(sc>=40?'<p class="tip">'+esc(e.tip)+'</p>':"")+'</div>';}).join("")+'</div></div>';
+  /* ranking de zonas */
+  if(ST.W){var all=Z.map(function(zz){return analysisFor(zz,now);}),best=all.slice().sort(function(a,b){return b.q-a.q;}).slice(0,5),hot=all.slice().sort(function(a,b){return b.pec-a.pec;}).slice(0,5);
+    function lst(a,k){return '<ol class="cx-env-zl">'+a.map(function(r){return '<li data-zone="'+esc(r.z.id)+'"><span>'+esc(r.z.name)+'</span><b>'+Math.round(r[k])+'</b></li>';}).join("")+'</ol>';}
+    h+='<div class="cx-env-grid"><div class="cx-env-card"><p class="lbl">MEJORES ZONAS PARA VIGILAR AHORA</p>'+lst(best,"q")+'<p class="cx-env-note">Tocá una zona para analizarla.</p></div>'+
+       '<div class="cx-env-card"><p class="lbl">MAYOR PRESIÓN CONVENCIONAL AHORA</p>'+lst(hot,"pec")+'<p class="cx-env-note">Aquí los avistamientos tienen más probabilidad de ser ambientales.</p></div></div>';}
+  /* bitácora */
+  h+='<div class="cx-env-card wide"><p class="lbl">BITÁCORA AMBIENTAL · ASOCIAR A UN PARTE</p><div class="cx-env-act"><button type="button" data-act="save">＋ Guardar lectura</button><button type="button" data-act="copy">⧉ Copiar resumen</button>'+(logGet().length?'<button type="button" data-act="clear">Borrar</button>':"")+'</div>'+
+     '<div id="cx-env-logout">'+logHTML()+'</div></div>';
+  out.innerHTML=h;
+}
+
+/* ---------- bitácora local ---------- */
+function logGet(){try{return JSON.parse(store("cx_env_log")||"[]")||[];}catch(e){return [];}}
+function summary(){var z=curZone(),A=analysisFor(z,new Date()),S=ST.S,ex=A.ex.slice().sort(function(a,b){return (b.score||0)-(a.score||0);})[0];
+  return {t:new Date().toISOString(),zone:z.name,pec:Math.round(A.pec),top:ex?ex.name:"",kp:S&&S.kp!=null?S.kp:null,cc:A.w.cc,cape:A.w.cape,sun:+A.sk.sunAlt.toFixed(1),moon:Math.round(A.sk.moonIll*100),q:Math.round(A.q)};}
+function fdate(t){try{return new Date(t).toLocaleString("es-AR",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"});}catch(e){return String(t).slice(0,16);}}
+function text(o){return "CRIBA AMBIENTAL · "+o.zone+" · "+fdate(o.t)+"\nPresión de explicación convencional: "+o.pec+"/100 ("+o.top+")\nKp: "+(o.kp!=null?o.kp:"s/d")+" · Nubosidad: "+(o.cc!=null?o.cc+"%":"s/d")+" · CAPE: "+(o.cape!=null?Math.round(o.cape)+" J/kg":"s/d")+"\nSol: "+o.sun+"° · Luna: "+o.moon+"% · Calidad de vigilia: "+o.q+"/100\nFuentes: NOAA SWPC, Open-Meteo, USGS.";}
+function logHTML(){var l=logGet();if(!l.length)return '<p class="cx-env-note">Guardá la lectura al recibir o revisar un parte: queda la fecha, la zona y las condiciones para comparar después.</p>';
+  return '<ul class="cx-env-list">'+l.slice(-6).reverse().map(function(o){return "<li>"+esc(fdate(o.t))+" · "+esc(o.zone)+" · PEC "+o.pec+" · Kp "+(o.kp!=null?o.kp:"s/d")+"</li>";}).join("")+"</ul>";}
+function toast(m){var b=root.querySelector(".cx-env-act");if(!b)return;var t=b.querySelector(".cx-env-ok");if(!t){t=document.createElement("span");t.className="cx-env-ok";b.appendChild(t);}t.textContent=m;setTimeout(function(){if(t.parentNode)t.parentNode.removeChild(t);},2200);}
+function copy(s){function fb(){try{var a=document.createElement("textarea");a.value=s;a.style.cssText="position:fixed;opacity:0;top:0;left:0";document.body.appendChild(a);a.focus();a.select();var ok=document.execCommand("copy");document.body.removeChild(a);toast(ok?"Copiado":"No se pudo copiar");}catch(e){toast("No se pudo copiar");}}
+  if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(s).then(function(){toast("Copiado");},fb);else fb();}
+
+/* ---------- atlas y espectro (estático) ---------- */
+function buildStatic(){var a=$("cx-env-atlas"),f=$("cx-env-freq");
+  if(a)a.innerHTML=ATLAS.map(function(r){return '<details class="cx-env-it"><summary><span>'+r[0]+"</span> "+esc(r[1])+'</summary><p><b>Qué es:</b> '+esc(r[2])+'</p><p><b>Qué lo favorece:</b> '+esc(r[3])+'</p><p><b>Cómo distinguirlo:</b> '+esc(r[4])+"</p></details>";}).join("");
+  if(f)f.innerHTML=FREQ.map(function(r){return '<div class="cx-env-fr"><b>'+esc(r[0])+'</b><p>'+esc(r[1])+'</p><p class="s">'+esc(r[2])+"</p></div>";}).join("");}
+
+/* ---------- eventos ---------- */
+root.addEventListener("click",function(e){var t=e.target,b=t.closest&&t.closest("button"),li=t.closest&&t.closest("li[data-zone]");
+  if(li){ST.zone=li.getAttribute("data-zone");store("cx_env_zone",ST.zone);render();return;}
+  if(!b)return;
+  if(b.id==="cx-env-refresh"){refresh(true);return;}
+  var act=b.getAttribute("data-act");if(!act)return;
+  if(act==="save"){var l=logGet();l.push(summary());store("cx_env_log",JSON.stringify(l.slice(-30)));var el=$("cx-env-logout");render();toast("Lectura guardada");}
+  else if(act==="copy"){copy(text(summary()));}
+  else if(act==="clear"){store("cx_env_log","[]");render();}
+});
+root.addEventListener("change",function(e){if(e.target&&e.target.id==="cx-env-zone"){ST.zone=e.target.value;store("cx_env_zone",ST.zone);render();}});
+
+/* ---------- arranque diferido ---------- */
+(function init(){
+  ST.zone=store("cx_env_zone")||"uritorco";buildStatic();render();
+  var started=false;function go(){if(started)return;started=true;refresh(false);}
+  if("IntersectionObserver" in window){var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){go();io.disconnect();}});},{rootMargin:"250px"});io.observe(root);}
+  else setTimeout(go,2500);
+  setInterval(function(){if(document.hidden||!started||!root.offsetParent)return;if(Date.now()-ST.t>15*60e3)refresh(true);},60000);
+})();
+})();
+</script>
+<script id="cx-fluid-anim">
+/* Fluidez: las animaciones infinitas que animan filter/box-shadow/etc. obligan a repintar la imagen en cada cuadro.
+   Se reemplazan por una versión equivalente que usa solo opacity/transform (la resuelve la GPU, sin repintar). */
+(function(){
+  "use strict";
+  if(!document.getAnimations||!Element.prototype.animate) return;
+  var SAFE={offset:1,computedOffset:1,easing:1,composite:1,opacity:1,transform:1,translate:1,scale:1,rotate:1};
+  function isCss(a){return typeof a.animationName==="string";}
+  function heavy(a){
+    try{
+      var e=a.effect; if(!e||!e.getKeyframes||!isCss(a)) return false;
+      if(e.getComputedTiming().iterations!==Infinity) return false;
+      var kf=e.getKeyframes();
+      for(var i=0;i<kf.length;i++) for(var p in kf[i]) if(!SAFE[p]) return true;
+    }catch(_){}
+    return false;
+  }
+  function convert(a){
+    try{
+      var e=a.effect,t=e.target,tm=e.getTiming(),keep=[];
+      e.getKeyframes().forEach(function(k){
+        var o={offset:k.computedOffset};
+        if(k.opacity!=null) o.opacity=k.opacity;
+        if(k.transform!=null&&k.transform!=="none") o.transform=k.transform;
+        if(k.easing) o.easing=k.easing;
+        keep.push(o);
+      });
+      var any=keep.some(function(o){return o.opacity!=null||o.transform!=null;});
+      a.cancel();
+      if(any&&t&&t.animate) t.animate(keep,{duration:tm.duration,delay:tm.delay,iterations:Infinity,direction:tm.direction,easing:tm.easing,fill:"none"});
+    }catch(_){}
+  }
+  function sweep(){try{document.getAnimations().forEach(function(a){if(a.playState==="running"&&heavy(a))convert(a);});}catch(_){}}
+  document.addEventListener("animationstart",function(ev){
+    try{var t=ev.target;if(!t||!t.getAnimations)return;t.getAnimations().forEach(function(a){if(isCss(a)&&a.animationName===ev.animationName&&heavy(a))convert(a);});}catch(_){}
+  },true);
+  sweep();
+  window.addEventListener("load",function(){setTimeout(sweep,300);setTimeout(sweep,2500);},{once:true});
+  document.addEventListener("click",function(e){if(e.target&&e.target.closest&&e.target.closest("#nav button,#cx-edge-panel button")){setTimeout(sweep,60);setTimeout(sweep,700);}},true);
+})();
+</script>
+<script id="cx-gate-off">
+/* Tras entrar, la pantalla de acceso queda invisible pero seguía animando; se la saca del render. */
+(function(){
+  var g=document.getElementById("gate");if(!g||!window.MutationObserver)return;var t=0;
+  function chk(){clearTimeout(t);if(g.classList.contains("hide")){t=setTimeout(function(){if(g.classList.contains("hide"))g.style.setProperty("display","none","important");},1000);}}
+  new MutationObserver(function(){if(!g.classList.contains("hide")&&g.style.getPropertyPriority("display")==="important")g.style.removeProperty("display");chk();}).observe(g,{attributes:true,attributeFilter:["class"]});chk();
+})();
+</script>
+<style id="cx-fluid-css">
+/* Solo el icono activo del menú anima; los otros 7 (3 animaciones cada uno) quedan quietos */
+#nav button:not(.active) .ico,#nav button:not(.active) .ico::before,#nav button:not(.active) .ico::after{animation-play-state:paused!important}
+</style>
+<script id="cx-smil-pause">
+/* Las animaciones SVG (SMIL) siguen corriendo en secciones ocultas: se pausan salvo en la sección visible. */
+(function(){
+  var list=[].filter.call(document.querySelectorAll("svg"),function(s){return s.querySelector("animate,animateTransform,animateMotion,set")&&s.pauseAnimations;});
+  if(!list.length)return;
+  function apply(){list.forEach(function(s){var v=s.closest&&s.closest(".view"),on=!v||v.classList.contains("active");try{on?s.unpauseAnimations():s.pauseAnimations();}catch(_){}});}
+  apply();
+  document.addEventListener("click",function(e){if(e.target&&e.target.closest&&e.target.closest("button,a")){setTimeout(apply,80);setTimeout(apply,700);}},true);
+  window.addEventListener("load",function(){setTimeout(apply,400);},{once:true});
+})();
+</script>
+<style id="cx-lite-css">
+/* Modo ligero (se activa solo en equipos modestos): quita los efectos decorativos más costosos, el resto queda igual */
+html.cx-lite [class*="banner-ring"],html.cx-lite [class*="banner-pulse"],html.cx-lite [class*="map-ring"],html.cx-lite [class*="map-pulse"],
+html.cx-lite .cx-vig-hero,html.cx-lite .cx-vig-hero *,html.cx-lite [class*="banner-img"],html.cx-lite [class*="map-img"],
+html.cx-lite .province-heat-legend,html.cx-lite .map-fx{animation:none!important}
+html.cx-lite .cx-radar-sweep{filter:none!important}
+</style>
+<script id="cx-lite-mode">
+(function(){
+  "use strict";
+  var root=document.documentElement,pref=null;
+  try{pref=localStorage.getItem("cx_lite");}catch(_){}
+  function on(){root.classList.add("cx-lite");}
+  if(pref==="0")return;
+  if(pref==="1"){on();return;}
+  var weak=(navigator.deviceMemory&&navigator.deviceMemory<=4)||(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)||(navigator.connection&&navigator.connection.saveData);
+  if(weak){on();return;}
+  /* medición en reposo: si el equipo no sostiene ~50 fps con los efectos activos, pasa a modo ligero */
+  function probe(){
+    if(document.hidden){setTimeout(probe,3000);return;}
+    var d=[],last=performance.now(),end=last+2000;
+    (function f(t){d.push(t-last);last=t;if(t<end)requestAnimationFrame(f);else{
+      d=d.slice(3);if(d.length>10){var avg=d.reduce(function(a,b){return a+b;},0)/d.length;if(avg>20)on();}}})(last);
+  }
+  window.addEventListener("load",function(){setTimeout(probe,4000);},{once:true});
+})();
+</script>
+<script id="cx-fix-observation">
+/* initApp() llamaba a setupObservationTools(), que no existe: el arranque se cortaba y quedaban sin ejecutar
+   fillIntel, el reloj de inteligencia e initMap. Se define vacía solo si nadie más la definió. */
+if(typeof window.setupObservationTools!=="function"){window.setupObservationTools=function(){};}
+</script>
 </body></html>
